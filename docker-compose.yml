@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+
+  php:
+    build:
+      context: docker/php
+    ports:
+      - '127.0.0.1:8080:80'
+    volumes:
+      - './:/var/www/'
+      - './docker/php/data/.bash_history:/root/.bash_history'
+
+  db:
+    image: postgres:13.3-alpine
+    env_file:
+      - '.env'
+    volumes:
+      - './docker/db/data/postgresql/:/var/lib/postgresql/data/'
+    ports:
+      - '127.0.0.1:5432:5432'
