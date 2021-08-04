@@ -1,7 +1,5 @@
 # TODO
 
-http://localhost:8080
-
 ## Setup
 
 - `touch ./docker/php/data/.bash_history`
@@ -13,3 +11,31 @@ http://localhost:8080
 - `composer install`
 
 - `bin/console do:mi:mi`
+
+## Tests
+
+`bin/phpunit`
+
+## Usage
+
+http://localhost:8080
+
+POST /tasks
+```
+{
+    "text": "Lorem ipsum",
+    "checked": false
+}
+```
+
+GET /tasks
+
+PUT /tasks/1
+```
+{
+    "text": "Lorem ipsum",
+    "checked": true
+}
+```
+
+DELETE /tasks/1
